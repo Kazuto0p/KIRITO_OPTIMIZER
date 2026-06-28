@@ -1,0 +1,6 @@
+{
+  "name": "Esports Touch & Signal Optimizer",
+  "description": "Premium benchmark and optimization utility designed for competitive esports. Diagnose touch sampling rates, click latency, frame rates, and generate device-specific ADB/registry tweaks directly with Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
