@@ -1,0 +1,85 @@
+================================================================================
+           KIRITO OPTIMIZER - ESPORTS TOUCH & SIGNAL OPTIMIZER
+                       COMPLETE USER MANUAL & GUIDE
+================================================================================
+
+Welcome to the Kirito Optimizer! This step-by-step manual will guide you from 
+uncalibrated, laggy gameplay to perfect, ultra-responsive sensitivity and 
+ideal "Brazilian Sensi" ratios (perfect for Battle Royale and shooter games).
+
+--------------------------------------------------------------------------------
+STEP 1: PRE-BENCHMARK (CHECK YOUR BASELINE LATENCY)
+--------------------------------------------------------------------------------
+Before making any changes, establish your current performance baseline:
+1. Scroll down to the "REAL-TIME TOUCH INTERFACE SAMPLING INSTRUMENT" section.
+2. Tap, hold, or drag your finger rapidly inside the green benchmark area.
+3. Observe your average/peak Touch Sampling Rate (Hz) and Jitter (ms). 
+   - Write down or remember these baseline numbers.
+4. Go to the "NEURAL REACTION RESPONSE TESTER" section.
+5. Tap to initiate, wait for the screen to turn GREEN, and tap as fast as you 
+   can to benchmark your raw system-to-screen processing speed in milliseconds.
+
+--------------------------------------------------------------------------------
+STEP 2: RUN THE GEMINI AI DEVICE ANALYZER
+--------------------------------------------------------------------------------
+To get a customized tuning profile for your exact hardware:
+1. Go to the "AI HARDWARE TUNER & SIGNAL OPTIMIZER" control panel at the top.
+2. Select your gaming platform:
+   - Android (Phones/Tablets)
+   - iOS (iPhones/iPads)
+   - PC (Windows gaming systems)
+   - Console (PlayStation/Xbox/Nintendo)
+3. Type in your exact Device Model (e.g., "ASUS ROG Phone 8 Pro", "iPhone 16 Pro Max", "iPad Air M2").
+4. Select your current perceived lag level (e.g., "High Jitter", "Micro-Stuttering", "Low-Latency Default").
+5. (Optional) Provide additional details like the specific game you play (e.g., "Free Fire", "PUBG Mobile", "Valorant").
+6. Click "OPTIMIZE DEVICE" to query the AI Engine.
+
+--------------------------------------------------------------------------------
+STEP 3: APPLY HARDWARE & DISPLAY SETTINGS
+--------------------------------------------------------------------------------
+Once the AI generates your report, look at the "HARDWARE CALIBRATION & DISPLAY" panel:
+1. Read each recommended system tweak.
+2. Go to your device's System Settings and apply them.
+   - For Android: This often includes locking your display's refresh rate to the maximum (e.g., 120Hz/165Hz) instead of Auto, or disabling gesture shortcuts (like 3-finger screenshot) which buffer touch inputs.
+   - For iOS: This includes turning off "Limit Frame Rate" under Accessibility > Motion, and setting Haptic Touch to "Fast".
+   - For PC: Setting NVIDIA Reflex to "Ultra", disabling Fullscreen Optimizations, or locking mouse poll rate to 1000Hz+.
+
+--------------------------------------------------------------------------------
+STEP 4: SETUP THE BRAZILIAN SENSI & SYSTEM SLIDERS
+--------------------------------------------------------------------------------
+Scroll down to "BRAZILIAN COMPETITIVE SENSI SETTINGS" to find your exact sensitivity numbers.
+1. Configure your system-level Pointer Speed (Velocidade do Ponteiro) as specified.
+2. Change your device's DPI / Minimum Width (Menor Largura):
+   - For Android: Enable "Developer Options", locate "Minimum Width" (or "Smallest Width"), and change it to the suggested DPI value.
+   - For iOS/PC: Set tracking speed scale as recommended.
+3. Configure your in-game sensitivity sliders exactly to the generated values:
+   - Geral (General Camera): Main sensitivity for swift target tracking and 180 turns.
+   - Red Dot (Ponto Vermelho): Crucial for close-mid range tracking.
+   - Mira 2x (2x Scope): Smooth target tracking.
+   - Mira 4x (4x Scope): Calibrated drag speed.
+   - AWM (Sniper Scope): Precise tracking without overflicking.
+   - Olhadinha (Free Look): Balanced ambient control.
+4. Read the "Capacidade Capa" (Headshot Alignment Engine) text to understand the swipe velocity and angle recommended for your weapon style (e.g., drag-shots with shotgun M1014 or SMG tracking).
+
+--------------------------------------------------------------------------------
+STEP 5: INJECT SYSTEM-LEVEL TWEAKS (ADB / REGISTRY)
+--------------------------------------------------------------------------------
+Locate the "OS REGISTER / SHELL COMMAND TERMINAL OVERRIDES" box:
+1. Copy the commands generated for your platform.
+2. Apply them:
+   - For Android: Connect your phone to a PC, open an ADB command window, and execute the shell settings overrides.
+   - For PC (Windows): Open `regedit` (Registry Editor) and navigate to the specified paths to set the mouse/network parameters.
+   - For iOS: Apply the accessibility configuration rules (like disabling "Touch Accommodations" and adjusting repeat rates).
+
+--------------------------------------------------------------------------------
+STEP 6: RE-BENCHMARK & VERIFY IMPROVEMENTS
+--------------------------------------------------------------------------------
+1. Return to the "REAL-TIME TOUCH INTERFACE SAMPLING INSTRUMENT" and run the test again.
+2. Verify that:
+   - Touch Sampling Rate (Hz) is higher and more stable.
+   - Touch Jitter (ms) has decreased toward zero.
+3. Run the reaction test again. You should see a noticeable drop in reaction times because of reduced display input queuing.
+4. Save your tuned profile to the "OPTIMIZED ESPORTS PLAYER REGISTRY" sidebar to keep track of your successful configurations!
+
+Enjoy your lag-free gaming!
+================================================================================
