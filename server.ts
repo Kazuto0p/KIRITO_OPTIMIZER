@@ -4,6 +4,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
 
 dotenv.config();
+dotenv.config({ path: ".env.local" });
 
 // Initialize Express
 const app = express();
