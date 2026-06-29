@@ -186,6 +186,7 @@ export default function App() {
   const [activeTweak, setActiveTweak] = useState<typeof ESC_PRESETS[0]>(ESC_PRESETS[0]);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [showWelcomePopup, setShowWelcomePopup] = useState(true);
 
   // Real-time Touch Instrument State
   const [isTestingTouch, setIsTestingTouch] = useState(false);
@@ -452,6 +453,120 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
       
+      {/* Welcome Popup Modal */}
+      <AnimatePresence>
+        {showWelcomePopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl shadow-cyan-500/10 overflow-hidden"
+            >
+              {/* Decorative background glow */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowWelcomePopup(false)}
+                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800/50 transition-colors"
+                aria-label="Close popup"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              <div className="text-center space-y-6">
+                {/* Brand Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-950/60 border border-cyan-800/30 rounded-full text-xs font-mono text-cyan-400">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  DEVELOPER PROFILE
+                </div>
+
+                {/* Title */}
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-500">
+                    KIRITO OPTIMIZER
+                  </h2>
+                  <p className="text-sm font-semibold text-slate-300">
+                    Developed by <span className="text-cyan-400 font-bold">KIRITO (Kazuto0p)</span>
+                  </p>
+                </div>
+
+                {/* Short Overview */}
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  An Esports-grade Touch & Hardware Signal Optimizer designed to minimize physical input lag, calibrate screen polling rates, and generate perfect Brazilian-style competitive sensitivity configurations (Sensi & DPI) for mobile and desktop shooter games.
+                </p>
+
+                {/* Social Links */}
+                <div className="space-y-3">
+                  <p className="text-xs font-mono text-slate-500 tracking-widest uppercase">Connect with Developer</p>
+                  <div className="flex justify-center gap-4">
+                    {/* GitHub */}
+                    <a
+                      href="https://github.com/Kazuto0p"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-slate-950 border border-slate-850 hover:border-cyan-500 text-slate-400 hover:text-white rounded-2xl hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group"
+                      title="GitHub"
+                    >
+                      <svg className="w-6 h-6 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                    </a>
+
+                    {/* Instagram */}
+                    <a
+                      href="https://www.instagram.com/_.ki_ri_to_?igsh=dXpvZm1rYmFxdmc1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-slate-950 border border-slate-850 hover:border-pink-500 text-slate-400 hover:text-pink-500 rounded-2xl hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 group"
+                      title="Instagram"
+                    >
+                      <svg className="w-6 h-6 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                      </svg>
+                    </a>
+
+                    {/* Discord */}
+                    <a
+                      href="https://discord.gg/AAQ7EaAPc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-slate-950 border border-slate-850 hover:border-indigo-500 text-slate-400 hover:text-indigo-400 rounded-2xl hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300 group"
+                      title="Discord"
+                    >
+                      <svg className="w-6 h-6 transition-transform group-hover:scale-110" viewBox="0 0 127.14 96.36" fill="currentColor">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.5-5c.9-.65,1.76-1.34,2.58-2.07a75.48,75.48,0,0,0,73.18,0c.82.73,1.68,1.42,2.58,2.07a68.43,68.43,0,0,1-10.5,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129.87,50.12,123.82,27.23,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Primary Button */}
+                <button
+                  onClick={() => setShowWelcomePopup(false)}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold py-3.5 rounded-2xl transition duration-300 shadow-xl shadow-cyan-950/20 hover:shadow-cyan-500/15"
+                >
+                  Enter Optimizer
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navbar Banner Header */}
       <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -464,28 +579,45 @@ export default function App() {
                 <span className="font-mono text-xs tracking-widest text-cyan-500 font-bold bg-cyan-950/50 px-2 py-0.5 rounded border border-cyan-500/20">LOW_LATENCY v1.99</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               </div>
-              <h1 className="text-xl font-black tracking-tight text-white mt-1">
-                Esports Touch & Hardware Signal Optimizer
+              <h1 className="text-xl font-black tracking-tight text-white mt-1 flex items-center gap-2">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">KIRITO OPTIMIZER</span>
+                <span className="text-slate-500 font-medium text-xs hidden md:inline">| Esports Touch & Signal Optimizer</span>
               </h1>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-slate-400">ORGANIZATION METRICS PRESETS:</span>
-            <div className="flex flex-wrap gap-1">
-              {ESC_PRESETS.map((p, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleSelectPreset(p)}
-                  className={`text-[11px] font-mono font-medium px-2 py-1 rounded transition duration-200 ${
-                    activeTweak.model === p.model 
-                      ? "bg-cyan-500 text-slate-950 font-bold shadow" 
-                      : "bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white"
-                  }`}
-                >
-                  {p.model.split(" ")[0]} 
-                </button>
-              ))}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-slate-400">PRESETS:</span>
+              <div className="flex flex-wrap gap-1">
+                {ESC_PRESETS.map((p, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSelectPreset(p)}
+                    className={`text-[11px] font-mono font-medium px-2 py-1 rounded transition duration-200 ${
+                      activeTweak.model === p.model 
+                        ? "bg-cyan-500 text-slate-950 font-bold shadow" 
+                        : "bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white"
+                    }`}
+                  >
+                    {p.model.split(" ")[0]} 
+                  </button>
+                ))}
+              </div>
             </div>
+
+            {/* Developer GitHub Link */}
+            <a
+              href="https://github.com/Kazuto0p"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-900 border border-slate-850 hover:border-cyan-500 hover:bg-slate-800 text-slate-400 hover:text-cyan-400 rounded-xl transition-all duration-300"
+              title="Visit Developer GitHub (Kazuto0p)"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
           </div>
         </div>
       </header>
